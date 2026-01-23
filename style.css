@@ -1,0 +1,22 @@
+body {
+    font-family: Arial;
+    margin: 20px;
+}
+
+h1 {
+    color: darkblue;
+}
+
+nav a {
+    text-decoration: none;
+    margin: 5px;
+    color: black;
+}
+
+nav a:hover {
+    color: blue;
+}
+
+table {
+    border-collapse: collapse;
+}
