@@ -1,0 +1,99 @@
+PROJECT REPORT
+Real-Time Bus Tracking System
+________________________________________
+1. Introduction
+In modern urban transportation systems, real-time tracking plays a crucial role in improving commuter experience and operational efficiency. Traditional bus systems often suffer from delays, lack of transparency, and inaccurate arrival timings. To overcome these challenges, the Real-Time Bus Tracking System is designed to provide live bus location updates, route visualization, and Estimated Time of Arrival (ETA) using GPS and mapping services.
+This project enables passengers to track buses in real time while allowing administrators to manage routes and monitor vehicles efficiently.
+________________________________________
+2. Objectives of the Project
+The main objectives of this project are:
+•	To track buses in real time using GPS data
+•	To display live bus locations on an interactive map
+•	To calculate ETA based on distance and speed
+•	To manage bus routes through an admin panel
+•	To provide a scalable and REST-based backend system
+________________________________________
+3. Problem Statement
+Public transportation users often face uncertainty regarding bus arrival times and routes. Manual tracking systems are inefficient and outdated. There is a need for an automated, real-time tracking solution that provides accurate and timely information to users.
+________________________________________
+4. Proposed Solution
+The proposed system uses GPS-enabled buses, a backend server to process location data, and a frontend web application that displays real-time information on Google Maps. The system continuously updates bus positions and calculates ETA using distance-based algorithms.
+________________________________________
+5. Tech Stack Used
+Frontend
+•	React.js – For building dynamic and responsive user interfaces
+•	Google Maps API – For map visualization, route plotting, and live tracking
+Backend
+•	Spring Boot – For building RESTful APIs
+•	Java – Backend programming language
+Database
+•	PostgreSQL – For storing bus, route, and GPS data
+________________________________________
+6. System Architecture
+The system follows a client-server architecture:
+1.	GPS devices send real-time location data
+2.	Backend APIs process and store the data
+3.	Frontend fetches updates via REST APIs
+4.	Google Maps API displays live bus movement
+________________________________________
+7. Modules Description
+1. Admin Panel
+•	Add and manage bus details
+•	Create and modify routes
+•	Monitor bus status and location
+2. GPS Feed Module
+•	Receives real-time latitude and longitude
+•	Updates bus location periodically
+•	Stores data in the database
+3. Route Display Module
+•	Shows predefined routes on the map
+•	Displays moving bus markers
+•	Highlights source and destination points
+4. ETA Estimation Module
+•	Calculates ETA using distance and speed
+•	Updates ETA dynamically as bus moves
+•	Improves accuracy using real-time data
+________________________________________
+8. Features of the System
+•	Live bus tracking on Google Maps
+•	Distance-based ETA calculation
+•	Interactive route visualization
+•	RESTful APIs for scalability
+•	Admin control panel
+•	Real-time updates without page refresh
+________________________________________
+9. Evaluation Criteria
+The system is evaluated based on:
+•	Accuracy of live map updates
+•	Efficiency of ETA calculation logic
+•	Performance of REST APIs
+•	Responsiveness of UI
+•	Proper route creation and display
+________________________________________
+10. Advantages
+•	Reduces passenger waiting time
+•	Improves transparency in public transport
+•	Scalable and modular architecture
+•	Easy integration with other transport systems
+________________________________________
+11. Limitations
+•	Requires active internet connection
+•	Depends on GPS accuracy
+•	Initial setup cost for GPS devices
+________________________________________
+12. Future Enhancements
+•	Mobile application support
+•	Push notifications for delays
+•	AI-based traffic prediction
+•	Integration with payment systems
+•	Multi-city support
+________________________________________
+13. Conclusion
+The Real-Time Bus Tracking System provides an efficient and reliable solution for modern public transportation challenges. By combining GPS technology, real-time data processing, and interactive maps, the system enhances commuter experience and improves transport management. The project demonstrates practical use of full-stack development and real-world problem-solving.
+________________________________________
+14. References
+•	Google Maps API Documentation
+•	Spring Boot Official Documentation
+•	PostgreSQL Documentation
+•	React.js Official Website
+
