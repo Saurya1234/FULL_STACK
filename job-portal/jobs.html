@@ -3,38 +3,205 @@
 <head>
     <title>Job Portal - Jobs</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        .page-title {
+            text-align: center;
+            margin-top: 20px;
+            color: #0d47a1;
+        }
+
+        .search-box {
+            text-align: center;
+            margin: 20px;
+        }
+
+        .search-box input {
+            width: 60%;
+            padding: 10px;
+            border-radius: 25px;
+            border: 1px solid #ccc;
+            outline: none;
+        }
+
+        .slider-container {
+            position: relative;
+            width: 90%;
+            margin: auto;
+            overflow: hidden;
+        }
+
+        .job-slider {
+            display: flex;
+            gap: 20px;
+            overflow-x: auto;
+            scroll-behavior: smooth;
+            padding: 20px;
+        }
+
+        .job-slider::-webkit-scrollbar {
+            display: none;
+        }
+
+        .job-card {
+            min-width: 320px;
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: 0.3s;
+            flex-shrink: 0;
+        }
+
+        .job-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .job-card h3 {
+            color: #0d47a1;
+            margin-bottom: 5px;
+        }
+
+        .job-card p {
+            margin: 5px 0;
+            color: #555;
+        }
+
+        .btn {
+            padding: 8px 12px;
+            margin-top: 10px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .update-btn {
+            background-color: #4caf50;
+            color: white;
+        }
+
+        .delete-btn {
+            background-color: #f44336;
+            color: white;
+        }
+
+        .slide-btn {
+            position: absolute;
+            top: 45%;
+            transform: translateY(-50%);
+            background-color: #0d47a1;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+            border-radius: 50%;
+            font-size: 18px;
+        }
+
+        .left-btn {
+            left: 0;
+        }
+
+        .right-btn {
+            right: 0;
+        }
+    </style>
 </head>
 <body>
 
-<h1>Available Jobs</h1>
+<h1 class="page-title">Available Jobs</h1>
 
-<nav>
-    <a href="index.html">Home</a> |
-    <a href="jobs.html">Jobs</a> |
-    <a href="login.html">Login</a> |
-    <a href="signup.html">Signup</a> |
-    <a href="contact.html">Contact</a>
+<nav style="text-align:center; padding:15px; background:#0d47a1;">
+    <a href="index.html" style="color:white; margin:10px;">Home</a>
+    <a href="jobs.html" style="color:white; margin:10px;">Jobs</a>
+    <a href="login.html" style="color:white; margin:10px;">Login</a>
+    <a href="signup.html" style="color:white; margin:10px;">Signup</a>
+    <a href="contact.html" style="color:white; margin:10px;">Contact</a>
 </nav>
 
-<hr>
+<div class="search-box">
+    <input type="text" id="searchInput" placeholder="Search jobs..." onkeyup="searchJobs()">
+</div>
 
-<table border="1" cellpadding="10">
-    <tr>
-        <th>Job Title</th>
-        <th>Company</th>
-        <th>Location</th>
-    </tr>
-    <tr>
-        <td>Web Developer</td>
-        <td>ABC Tech</td>
-        <td>Delhi</td>
-    </tr>
-    <tr>
-        <td>Software Engineer</td>
-        <td>XYZ Solutions</td>
-        <td>Mumbai</td>
-    </tr>
-</table>
+<div class="slider-container">
+
+    <button class="slide-btn left-btn" onclick="slideLeft()">‹</button>
+    <button class="slide-btn right-btn" onclick="slideRight()">›</button>
+
+    <div class="job-slider" id="jobSlider">
+
+        <div class="job-card">
+            <h3>Frontend Developer</h3>
+            <p>TechNova Solutions Pvt. Ltd.</p>
+            <p>Bangalore, India</p>
+            <p>Experience: 1-3 Years | Full-Time</p>
+            <button class="btn update-btn" onclick="updateJob(this)">Update</button>
+            <button class="btn delete-btn" onclick="deleteJob(this)">Delete</button>
+        </div>
+
+        <div class="job-card">
+            <h3>Backend Developer (Node.js)</h3>
+            <p>CodeCraft Technologies</p>
+            <p>Hyderabad, India</p>
+            <p>Experience: 2-4 Years | Hybrid</p>
+            <button class="btn update-btn" onclick="updateJob(this)">Update</button>
+            <button class="btn delete-btn" onclick="deleteJob(this)">Delete</button>
+        </div>
+
+        <div class="job-card">
+            <h3>UI/UX Designer</h3>
+            <p>Creative Minds Studio</p>
+            <p>Mumbai, India</p>
+            <p>Experience: 1-2 Years | Remote</p>
+            <button class="btn update-btn" onclick="updateJob(this)">Update</button>
+            <button class="btn delete-btn" onclick="deleteJob(this)">Delete</button>
+        </div>
+
+    </div>
+</div>
+
+<script>
+function slideLeft() {
+    document.getElementById("jobSlider").scrollLeft -= 340;
+}
+
+function slideRight() {
+    document.getElementById("jobSlider").scrollLeft += 340;
+}
+
+function deleteJob(button) {
+    button.parentElement.remove();
+}
+
+function updateJob(button) {
+    let card = button.parentElement;
+
+    let title = card.querySelector("h3");
+    let details = card.querySelectorAll("p");
+
+    let newTitle = prompt("Enter new Job Title:", title.innerText);
+    let newCompany = prompt("Enter new Company:", details[0].innerText);
+    let newLocation = prompt("Enter new Location:", details[1].innerText);
+    let newExperience = prompt("Enter Experience/Type:", details[2].innerText);
+
+    if (newTitle && newCompany && newLocation && newExperience) {
+        title.innerText = newTitle;
+        details[0].innerText = newCompany;
+        details[1].innerText = newLocation;
+        details[2].innerText = newExperience;
+    }
+}
+
+function searchJobs() {
+    let input = document.getElementById("searchInput").value.toLowerCase();
+    let cards = document.getElementsByClassName("job-card");
+
+    for (let i = 0; i < cards.length; i++) {
+        let text = cards[i].innerText.toLowerCase();
+        cards[i].style.display = text.includes(input) ? "block" : "none";
+    }
+}
+</script>
 
 </body>
 </html>
