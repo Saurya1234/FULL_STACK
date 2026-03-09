@@ -1,0 +1,163 @@
+# Real-Time Bus Tracking System
+
+**Author:** Sauryakul Raj
+
+## Overview
+
+The **Real-Time Bus Tracking System** is a full-stack web application that allows users to monitor the live location of a bus on an interactive map.
+The system simulates real-time bus movement along a road route and displays key travel information such as **distance remaining, estimated time of arrival (ETA), and speed**.
+
+The project demonstrates how modern transportation tracking systems work using mapping services and real-time data updates.
+
+---
+
+## Features
+
+* 🗺 **Interactive Map** using OpenStreetMap
+* 🛣 **Road Route Visualization** between Delhi and Chandigarh
+* 🚌 **Real-Time Bus Movement Simulation**
+* 📍 **Bus Stop Markers**
+* ⏱ **Estimated Time of Arrival (ETA)** calculation
+* 📏 **Distance Remaining** display
+* 🚍 **Speed Simulation**
+* 🔁 **Automatic Reverse Movement** (bus travels back from destination)
+
+---
+
+## Technologies Used
+
+### Frontend
+
+* React.js
+* Leaflet
+* React Leaflet
+
+### Backend
+
+* FastAPI (Python)
+
+### APIs
+
+* OpenRouteService (route generation)
+* OpenStreetMap (map tiles)
+
+---
+
+## System Architecture
+
+```
+Frontend (React + Leaflet)
+        ↓
+Backend API (FastAPI)
+        ↓
+OpenRouteService API
+        ↓
+Map Rendering (OpenStreetMap)
+```
+
+The frontend fetches route data and updates the bus position periodically to simulate real-time tracking.
+
+---
+
+## Project Structure
+
+```
+real-time-bus-tracking
+│
+├── Backend
+│   ├── app
+│   │   ├── main.py
+│   │   ├── routes
+│   │   └── models
+│   └── requirements.txt
+│
+├── frontend
+│   ├── src
+│   │   ├── components
+│   │   │   └── MapView.js
+│   │   ├── App.js
+│   │   └── index.js
+│   └── package.json
+│
+└── README.md
+```
+
+---
+
+## Installation & Setup
+
+### 1. Clone the Repository
+
+```
+git clone https://github.com/your-repository-name.git
+cd real-time-bus-tracking
+```
+
+---
+
+### 2. Run Backend
+
+```
+cd Backend
+pip install -r requirements.txt
+uvicorn app.main:app --reload
+```
+
+Backend runs at:
+
+```
+http://127.0.0.1:8000
+```
+
+---
+
+### 3. Run Frontend
+
+Open a new terminal:
+
+```
+cd frontend
+npm install
+npm start
+```
+
+Frontend runs at:
+
+```
+http://localhost:3000
+```
+
+---
+
+## Demo Route
+
+The system demonstrates a bus route between:
+
+```
+Delhi ↔ Chandigarh
+```
+
+The bus travels along the generated road route and automatically reverses direction when reaching the destination.
+
+---
+
+## Future Improvements
+
+* Multiple buses with different routes
+* Admin panel for route management
+* Real GPS integration
+* Mobile app support
+* Traffic-based ETA prediction
+* Bus rotation animation (like ride-hailing apps)
+
+---
+
+## License
+
+This project is for **educational and demonstration purposes**.
+
+---
+
+## Author
+
+**Sauryakul Raj**
